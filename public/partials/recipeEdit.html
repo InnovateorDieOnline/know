@@ -1,0 +1,72 @@
+<form class="form-horizontal" role="form">
+
+  <div class="form-group">
+    <label for="nameTextt">Name</label>
+    <input ng-model="recipe.name" type="text" id="nameText" class="form-control" placeholder="Recipe name">
+  </div>
+  
+  <div class="form-group">
+    <label for="dateText">Date of Entry</label>
+    <input ng-model="recipe.date" type="text" id="nameText" class="form-control" placeholder="Date">
+  </div>
+
+  <div class="form-group">
+    <label for="ingText">Resource Link</label> 
+    <textarea ng-model="recipe.ingredients" id="ingText" class="form-control" rows="1" placeholder="Enter ingredients here"></textarea>
+  </div>
+  
+
+<!-- 	<body ng-controller="FileUploadCtrl"> -->
+<!-- 	    <div class="row"> -->
+<!-- 	        <label for="fileToUpload">Select a File to Upload</label><br /> -->
+<!-- 	        <input type="file" ng-model-instant id="fileToUpload" multiple onchange="angular.element(this).scope().setFiles(this)" /> -->
+<!-- 	    </div> -->	 
+	</body>
+	
+	<input type="file" name="file" onchange="console.log('Hello the file is')"/>
+	<!-- angular.element(this).scope().uploadFile(this.files); -->
+	
+	<div class="control-group">
+    <div class="controls">
+        <span class="btn btn-success fileinput-button">
+            <i class="icon-plus icon-white"></i>
+            <input type="file" name="file" data-url="home/upload" 
+                   multiple upload><span>Add files...</span>
+        </span>
+    </div>
+
+	<div>
+    <span ng-show="!files.length">No files selected</span>
+    <ul>
+        <li ng-repeat="file in files">{{file}}</li>
+    </ul>
+</div>
+
+<div class="form-actions">
+    <button type="submit" class="btn btn-primary pull-left" ng-click="console.log('Hello the file is')">Upload</button>
+</div>
+<div class="progress" ng-show="percentage">
+    <div class="bar" style="width: {{percentage}}%;"></div>
+</div>
+
+<br>
+<br>
+<br>
+  <div class="form-group">
+    <label for="dirText">Transaction and Connection History</label> 
+    <p><textarea ng-model="recipe.directions" id="dirText" class="form-control" rows="5" placeholder="Enter directions here"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="noteText">Notes</label> 
+    <p><textarea ng-model="recipe.notes" id="noteText" class="form-control" rows="10" placeholder="Enter notes here"></textarea>
+  </div>
+
+  <div class="form-group">
+      <button ng-click="submit()" type="button" class="btn btn-primary">Save</button>
+  </div>
+
+  <p ng-bind="errorMsg"></p>
+  <p>ID: {{recipe.key}}<p/>
+
+</form>
